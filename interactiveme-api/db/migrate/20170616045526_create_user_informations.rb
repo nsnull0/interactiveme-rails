@@ -3,7 +3,7 @@ class CreateUserInformations < ActiveRecord::Migration[5.1]
     create_table :user_informations do |t|
       t.string :password
       t.string :email
-      t.boolean :status
+      t.integer :status
 
       t.timestamps
     end

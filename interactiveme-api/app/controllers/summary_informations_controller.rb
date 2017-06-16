@@ -1,0 +1,2 @@
+class SummaryInformationsController < ApplicationController
+end
