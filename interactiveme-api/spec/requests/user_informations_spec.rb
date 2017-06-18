@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'user_informations api', type: :request  do
 
-	let!(:user_informations) { create_list(:user_information, 10) }
-	let(:user_informations_id) { user_informations.first.id }
+	let!(:user_informations) { create_list(:user_informations, 10) }
+	let(:user_information_id) { user_informations.first.id }
 
 	describe 'GET /user_informations' do
 
@@ -23,7 +23,7 @@ RSpec.describe 'user_informations api', type: :request  do
 	end
 
 	describe 'GET /user_informations/:id' do
-		before { get "/user_informations/#{'user_informations_id'}" }
+		before { get "/user_informations/#{'user_information_id'}" }
 
 		context 'when the record exists' do
 			it 'returns the user_informations' do
@@ -89,7 +89,7 @@ RSpec.describe 'user_informations api', type: :request  do
     	let(:valid_attributes) { { email: 'yoseph@wijaya.com', password: '123456', status: 0 } }
 
     	context 'when the record exists' do
-      	before { put "/user_informations/#{user_informations_id}", params: valid_attributes }
+      	before { put "/user_informations/#{user_information_id}", params: valid_attributes }
 
       		it 'updates the record' do
        			expect(response.body).to be_empty
@@ -102,7 +102,7 @@ RSpec.describe 'user_informations api', type: :request  do
   	end
 
   	describe 'DELETE /user_informations/:id' do
-  		before { delete "/user_informations/#{user_informations_id}" }
+  		before { delete "/user_informations/#{user_information_id}" }
 
   		it 'returns status code 204' do
   			expect(response).to have_http_status(204)
